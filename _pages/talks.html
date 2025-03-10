@@ -1,16 +1,12 @@
 ---
 layout: archive
-title: "Talks and presentations"
-permalink: /talks/
+title: "Projects"
+permalink: /kala/
 author_profile: true
 ---
 
-{% if site.talkmap_link == true %}
+{% assign sorted_talks = site.talks | sort: "order" %}
 
-<p style="text-decoration:underline;"><a href="/talkmap.html">See a map of all the places I've given a talk!</a></p>
-
-{% endif %}
-
-{% for post in site.talks reversed %}
+{% for post in sorted_talks %}
   {% include archive-single-talk.html %}
 {% endfor %}
