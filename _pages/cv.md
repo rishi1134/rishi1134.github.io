@@ -14,7 +14,7 @@ Education
 * **M.S. in Computer Science and Engineering, University at Buffalo, 2024-26**
   - Grade: 3.92/4.0
   - Research Track with specialization in Computer Vision and Deep Learning
-  - Courses: Machine Learning, Parallel and Distributed Processing, Reinforcement Learning, Deep Learning, Information Retrieval, Algs for Dodern Computing Systems
+  - Courses: Machine Learning, Parallel and Distributed Processing, Reinforcement Learning, Deep Learning, Information Retrieval, Algs for Modern Computing Systems
 * **B.Tech. in Electronics and Communication Engineering, Vellore Institute of Technology, 2017-21**
   - Grade: 9.48/10.0
   - Courses: Applied Linear Algebra, Computer Communication Networks, Data Structures and Algorithms, Digital Image Processing, Embedded System Design, Probability Theory and Random Processes, Statistics for Engineers
