@@ -2,7 +2,7 @@
 title: "Wiki Retrieval Chatbot"
 collection: talks
 permalink: /talks/wikibot
-order: 4
+order: 6
 ---
 
 Project developed as part of the coursework CSE 4/535-Introduction to Information Retrieval in my Masters #IR #NLP

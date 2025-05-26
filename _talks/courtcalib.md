@@ -2,7 +2,7 @@
 title: "Automatic Calibration of Tennis Court Images"
 collection: talks
 permalink: /kala/courtcalib
-order: 1
+order: 3
 ---
 
 This project was done during my internship at PlaEye LLC. One of my proudest work!!

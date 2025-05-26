@@ -2,7 +2,7 @@
 title: " Pi-Eye: Visual Aid for the Colour Blind"
 collection: talks
 permalink: /talks/pieye
-order: 6
+order: 8
 ---
 
 Yet another project I am proud of is Pi-Eye. This system empowers individuals with severe or mild color blindness (total absence of cone cells) to identify the color of an object as well as its name. Additionally, it assists individuals with mild visual impairments in recognizing objects within their field of view. The system processes input frames from a camera and remains idle until the user points to an object using a pointer pen. It then activates an audio output, announcing the name and color of the object.

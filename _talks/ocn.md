@@ -2,7 +2,7 @@
 title: "V2V Communication using Free Space Optics"
 collection: talks
 permalink: /talks/ocn
-order: 7
+order: 9
 ---
 
 Another project I'm really proud of, where I combined the principles of Optical Communication and Networking to develop a Vehicle-to-Vehicle (V2V) communication system using optics as the communication medium. I designed an error-resilient communication protocol from scratch and successfully demonstrated the transmission of vehicle lane changes, braking, and speed information to another vehicle through a free-space optics medium. #V2V #Networking #FSO

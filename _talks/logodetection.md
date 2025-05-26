@@ -2,7 +2,7 @@
 title: "Logo Detection and Analysis in Images"
 collection: talks
 permalink: /kala/logodetection
-order: 2
+order: 4
 ---
 
 This project was a part of my undergrad capstone project advised by Prof. Sathiya Narayanan. S and PlaEye LLC

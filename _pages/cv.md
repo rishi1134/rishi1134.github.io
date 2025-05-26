@@ -12,15 +12,18 @@ redirect_from:
 Education
 ======
 * **M.S. in Computer Science and Engineering, University at Buffalo, 2024-26**
-  - Grade: 3.92/4.0
+  - Grade: 3.95/4.0
   - Research Track with specialization in Computer Vision and Deep Learning
-  - Courses: Machine Learning, Parallel and Distributed Processing, Reinforcement Learning, Deep Learning, Information Retrieval, Algs for Modern Computing Systems
+  - Courses: Deep Learning, Reinforcement Learning, Computer Vision, Machine Learning, Parallel and Distributed Processing, Information Retrieval, Algs for Modern Computing Systems
 * **B.Tech. in Electronics and Communication Engineering, Vellore Institute of Technology, 2017-21**
   - Grade: 9.48/10.0
   - Courses: Applied Linear Algebra, Computer Communication Networks, Data Structures and Algorithms, Digital Image Processing, Embedded System Design, Probability Theory and Random Processes, Statistics for Engineers
 
 Work experience
 ======
+* **ML Computing Intern, May 2025 - Aug 2025**
+  * Mercedes-Benz R&D (MBRDNA), San Jose, CA
+
 * **Research Assistant, Feb 2025 - Present**
   * The Research Foundation for SUNY, Buffalo, NY
   * Duties included: 
@@ -32,7 +35,7 @@ Work experience
  functions, achieving a **Mean Absolute Error (MAE) of less than 1**.
   * Supervisor: Dr. Junsong Yuan, Dr. Peter CW Kim
 
-* **Graduate Student Assistant - Grader, Jan 2025 - Present**
+* **Graduate Student Assistant - Grader, Jan 2025 - May 2025**
   * University at Buffalo, Buffalo, NY
   * Duties included: Course Grader for 'CSE574 Intro Machine Learning', evaluating student quizzes and assignments
   * Supervisor: Dr. Asif Imran
