@@ -11,8 +11,8 @@ main:
   - title: "Projects"
     url: /kala/
         
-  - title: "Dumb Ideas"
-    url: /dumb/
+  # - title: "Dumb Ideas"
+  #   url: /dumb/
 
-  - title: "Reads"
-    url: /padailikhaikaroiasyasbano/
+  # - title: "Reads"
+  #   url: /padailikhaikaroiasyasbano/

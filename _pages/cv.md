@@ -23,8 +23,15 @@ Work experience
 ======
 * **ML Computing Intern, May 2025 - Aug 2025**
   * Mercedes-Benz R&D (MBRDNA), San Jose, CA
+  * Duties included:
+    Autonomous Driving
+    - Benchmarked TensorRT and authored a report for next-gen **Autonomous Driving** compiler stack. 
+    - Optimized inference by exploring **CUDA Graphs** with **Nsight Systems**, trimming CPU launch overhead and **cutting latency 20%**. Drove **4× faster inference** via INT8 **implicit and explicit quantization**. 
+    - Built a C++/CUDA utility to inspect TensorRT engine weights and automate network-pruning sweeps. 
+    - Implemented **unified-memory zero-copy** paths and custom GPU pools, **lowering peak GPU use 18%** and eliminating two memcpy calls per frame. 
+    - Proved bit-exact **determinism** at runtime & layer level; stress-tested execution contexts to meet **ASIL-D safety**.
 
-* **Research Assistant, Feb 2025 - Present**
+* **Research Assistant, Oct 2024 - Present**
   * The Research Foundation for SUNY, Buffalo, NY
   * Duties included: 
     - Developed a **high-density object counting** solution using **GroundingDINO** integrated with Swin-B and BERT
@@ -40,7 +47,7 @@ Work experience
   * Duties included: Course Grader for 'CSE574 Intro Machine Learning', evaluating student quizzes and assignments
   * Supervisor: Dr. Asif Imran
 
-* **Tech Program App Dev 2 - C10, July 2021 - July 2024**
+* **Software Engineer - II, July 2021 - July 2024**
   * Citi (CSIPL, Citigroup), Chennai, India
   * Duties included: 
     - Co-owned and led the development of a web-based end-to-end tool initiative for data creation and conditioning,
@@ -64,6 +71,10 @@ Work experience
     - Created UI-based tools (using PyQt) for perspective projection and camera calibration
     - Contributed to optimizing the background subtraction algorithm SubSENSE for GPU using CUDA with C
     - Helped in creating a depth estimation algorithm from 2D-to-3D translation with the help of perspective projection and shadow point computation using ray geometry which was later used by the team to determine the position and spin of tennis balls from the video feed
+
+Patents and Publications
+======
+* Multi-Agent Computer Vision system & methods for automated object counting, classification and tracking. USPTO Application No. 63/851,812. Status: Patent Pending. 
 
 Honors & Awards
 ======
