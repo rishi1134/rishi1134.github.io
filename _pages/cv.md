@@ -21,16 +21,6 @@ Education
 
 Work experience
 ======
-* **ML Computing Intern, May 2025 - Aug 2025**
-  * Mercedes-Benz R&D (MBRDNA), San Jose, CA
-  * Duties included:
-    Autonomous Driving
-    - Benchmarked TensorRT and authored a report for next-gen **Autonomous Driving** compiler stack. 
-    - Optimized inference by exploring **CUDA Graphs** with **Nsight Systems**, trimming CPU launch overhead and **cutting latency 20%**. Drove **4× faster inference** via INT8 **implicit and explicit quantization**. 
-    - Built a C++/CUDA utility to inspect TensorRT engine weights and automate network-pruning sweeps. 
-    - Implemented **unified-memory zero-copy** paths and custom GPU pools, **lowering peak GPU use 18%** and eliminating two memcpy calls per frame. 
-    - Proved bit-exact **determinism** at runtime & layer level; stress-tested execution contexts to meet **ASIL-D safety**.
-
 * **Research Assistant, Oct 2024 - Present**
   * The Research Foundation for SUNY, Buffalo, NY
   * Duties included: 
@@ -40,7 +30,18 @@ Work experience
  model interaction.
     - Improved performance through **semantic-guided visual and textual prompt tuning** combined with domain-specific loss
  functions, achieving a **Mean Absolute Error (MAE) of less than 1**.
+    - Trained **ResNet & DINOv3**-based **MaskRCNN/Mask2Former** for low-density segmentation (MAE < 0.5)
   * Supervisor: Dr. Junsong Yuan, Dr. Peter CW Kim
+
+* **ML Computing Intern, May 2025 - Aug 2025**
+  * Mercedes-Benz R&D (MBRDNA), San Jose, CA
+  * Duties included:
+    Autonomous Driving
+    - Optimized inference by exploring **CUDA Graphs** with **Nsight Systems**, trimming CPU launch overhead and **cutting latency 20%**. 
+    - Drove **4× faster inference** via INT8 **implicit and explicit quantization**. 
+    - Built a C++/CUDA utility to inspect TensorRT engine weights and automate network-pruning sweeps. 
+    - Implemented **unified-memory zero-copy** paths and custom GPU pools, **lowering peak GPU use 18%** and eliminating two memcpy calls per frame. 
+    - Proved bit-exact **determinism** at runtime & layer level; stress-tested execution contexts to meet **ASIL-D safety**.
 
 * **Graduate Student Assistant - Grader, Jan 2025 - May 2025**
   * University at Buffalo, Buffalo, NY
@@ -74,6 +75,7 @@ Work experience
 
 Patents and Publications
 ======
+* WACV 2026 Conference (Accepted): Chain-of Look Spatial Reasoning for Dense Surgical Instrument Counting
 * Multi-Agent Computer Vision system & methods for automated object counting, classification and tracking. USPTO Application No. 63/851,812. Status: Patent Pending. 
 
 Honors & Awards
