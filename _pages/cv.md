@@ -14,26 +14,38 @@ Education
 * **M.S. in Computer Science and Engineering, University at Buffalo, 2024-26**
   - Grade: 3.95/4.0
   - Research Track with specialization in Computer Vision and Deep Learning
+  - Advisor: Prof. Junsong Yuan
   - Courses: Deep Learning, Reinforcement Learning, Computer Vision, Machine Learning, Parallel and Distributed Processing, Information Retrieval, Algs for Modern Computing Systems
 * **B.Tech. in Electronics and Communication Engineering, Vellore Institute of Technology, 2017-21**
   - Grade: 9.48/10.0
   - Courses: Applied Linear Algebra, Computer Communication Networks, Data Structures and Algorithms, Digital Image Processing, Embedded System Design, Probability Theory and Random Processes, Statistics for Engineers
 
-Work experience
+Patents and Publications
 ======
-* **Research Assistant, Oct 2024 - Present**
+*  **Rishikesh Bhyri** et al., “Chain-of-Look Spatial Reasoning for Dense Surgical Instrument Counting” IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2026. (Accepted) [(Preprint)](https://rishi1134.github.io/files/wacv26_preprint.pdf)
+* Multi-Agent Computer Vision system & methods for automated object counting, classification and tracking. USPTO Application No. 63/851,812. Status: Patent Pending. 
+
+Research Experience
+======
+* **Graduate Research Assistant, Oct 2024 - Present**
   * The Research Foundation for SUNY, Buffalo, NY
   * Duties included: 
-    - Developed a **high-density object counting** solution using **GroundingDINO** integrated with Swin-B and BERT
- encoders.
-    - Implemented a **feature fusion** module with bidirectional cross-attention across text and image modalities, enhancing
- model interaction.
-    - Improved performance through **semantic-guided visual and textual prompt tuning** combined with domain-specific loss
- functions, achieving a **Mean Absolute Error (MAE) of less than 1**.
-    - Trained **ResNet & DINOv3**-based **MaskRCNN/Mask2Former** for low-density segmentation (MAE < 0.5)
+    - **High-Density Object Counting (CountGD Extension)**: Engineered a novel counting framework extending CountGD (GroundingDINO, Swin-B, BERT). Integrated class-specific learnable tokens and designed a domain-specific loss function to enhance spatial reasoning in dense clusters, achieving a state-of-the-art **Mean Absolute Error (MAE) of 0.88**.
+    - **Surgical Instrument Instance Segmentation**: Developed a robust pipeline for low-to-medium density instrument segmentation. Benchmarked and fine-tuned Mask R-CNN, Mask2Former, and SAM 3, achieving **90% mAP** on the surgical dataset.
+    - **Density-Adaptive Mobile Deployment**: Built an Android application for real-time inference that utilizes a custom region proposal network to dynamically route image patches to either the segmentation model (low density) or the counting model (high density).
+    - **Performance Optimization**: Achieved a peak end-to-end latency of 0.32s (vs. 25.12s human counting) on mobile hardware. Reduced manual effort by 99% while maintaining high-fidelity detection visualizations.
   * Supervisor: Dr. Junsong Yuan, Dr. Peter CW Kim
 
-* **ML Computing Intern, May 2025 - Aug 2025**
+* **Computer Vision Intern, Jan 2021 - June 2021**
+  * PlaEye LLC
+  * Duties included: 
+    - **Logo Detection and Analysis in Images**: Developed a mobile-based brand analytics system for logo detection and classification using the LogoDet-3k dataset, optimized for arm64-v8a devices with ArmNN. Addressed challenges in dataset imbalance and diverse image features by implementing scaled loss functions and class augmentations. [(Link)](https://rishi1134.github.io/kala/logodetection)
+    -  Automatic Calibration of Tennis Court Images: Created a novel algorithm for automated tennis court calibration using Homography and Cross ratios to overcome single-view calibration limitations arising from elusive feature points in occluded views. [(Link)](https://rishi1134.github.io/kala/courtcalib)
+  * Supervisor: Mr. Venkat Yellepeddy
+
+Professional Experience
+======
+* **Machine Learning Intern, May 2025 - Aug 2025**
   * Mercedes-Benz R&D (MBRDNA), San Jose, CA
   * Duties included:
     Autonomous Driving
@@ -42,13 +54,15 @@ Work experience
     - Built a C++/CUDA utility to inspect TensorRT engine weights and automate network-pruning sweeps. 
     - Implemented **unified-memory zero-copy** paths and custom GPU pools, **lowering peak GPU use 18%** and eliminating two memcpy calls per frame. 
     - Proved bit-exact **determinism** at runtime & layer level; stress-tested execution contexts to meet **ASIL-D safety**.
+    - Designated as Primary Inventor for **2 patents** (currently in filing stage).
+  * Mentor: Mr. Jalpesh Bhadra
 
 * **Graduate Student Assistant - Grader, Jan 2025 - May 2025**
   * University at Buffalo, Buffalo, NY
   * Duties included: Course Grader for 'CSE574 Intro Machine Learning', evaluating student quizzes and assignments
   * Supervisor: Dr. Asif Imran
 
-* **Software Engineer - II, July 2021 - July 2024**
+* **Software Engineer, July 2021 - July 2024**
   * Citi (CSIPL, Citigroup), Chennai, India
   * Duties included: 
     - Co-owned and led the development of a web-based end-to-end tool initiative for data creation and conditioning,
@@ -58,25 +72,6 @@ Work experience
  remote headless execution which **decreased data creation time by 5x**, reduced cross-team dependency and **turnaround time by 80%**
     - Designed C# automation scripts for Fund Transfer module, **increasing the test coverage** for 7 market countries **by
  50%** and **saving cost** in licensing tools **by 30%**
-
-* **Computer Vision Intern, Jan 2021 - June 2024**
-  * PlaEye LLC
-  * Duties included: 
-    - **Logo Detection and Analysis in Images**: Created a brand analytics system and an Android application that can detect, and classify different sports brands in a given image scene captured from the app and list down the number of instances for each brand. The model was trained on **LogoDet-3k dataset** and the **inference model was run using ArmNN** for arm64-v8a architecture devices
-    - Dealt with the challenging in-the-wild dataset marked by class imbalance and diverse image features, including textual and visual logos, with scaled loss functions and class augmentations
-
-* **Computer Vision Intern, Apr 2020 - May 2020**
-  * PlaEye LLC
-  * Duties included: 
-    - Developed a novel algorithm for **automated tennis court calibration using Homography and Cross ratios** as the primary basis to address the challenging aspect of **single-view calibration systems** where it is difficult to extract the feature points from partially occluded or poorly recorded court area images/video feeds
-    - Created UI-based tools (using PyQt) for perspective projection and camera calibration
-    - Contributed to optimizing the background subtraction algorithm SubSENSE for GPU using CUDA with C
-    - Helped in creating a depth estimation algorithm from 2D-to-3D translation with the help of perspective projection and shadow point computation using ray geometry which was later used by the team to determine the position and spin of tennis balls from the video feed
-
-Patents and Publications
-======
-* WACV 2026 Conference (Accepted): Chain-of Look Spatial Reasoning for Dense Surgical Instrument Counting
-* Multi-Agent Computer Vision system & methods for automated object counting, classification and tracking. USPTO Application No. 63/851,812. Status: Patent Pending. 
 
 Honors & Awards
 ======
