@@ -6,7 +6,8 @@
 
 main:
   - title: "CV"
-    url: /multipanna/
+    # url: /multipanna/
+    url: /files/Portfolio_CV.pdf
 
   - title: "Projects"
     url: /kala/
