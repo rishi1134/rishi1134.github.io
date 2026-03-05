@@ -21,8 +21,8 @@ My work spans the entire AI lifecycle, from data curation to edge-device optimiz
 
 ## News
 
-- "Chain-of-Look Spatial Reasoning for Dense Surgical Instrument Counting" paper accepted at **WACV 2026** [[Paper](https://openaccess.thecvf.com/content/WACV2026/html/Bhyri_Chain-of-Look_Spatial_Reasoning_for_Dense_Surgical_Instrument_Counting_WACV_2026_paper.html)] [[Code](https://github.com/rishi1134/CoLSR)] [[Video](https://youtu.be/L23A99SjE4w)]
-- Summer'25 Internship at **Mercedes-Benz R&D** in San Jose as a **Machine Learning Computing Intern** on the Autonomous Driving - Middleware team. Focused on model optimization and deployment across various hardware targets.
+- **[Nov 2025]**: "Chain-of-Look Spatial Reasoning for Dense Surgical Instrument Counting" paper accepted at **WACV 2026** [[Paper](https://openaccess.thecvf.com/content/WACV2026/html/Bhyri_Chain-of-Look_Spatial_Reasoning_for_Dense_Surgical_Instrument_Counting_WACV_2026_paper.html)] [[Code](https://github.com/rishi1134/CoLSR)] [[Video](https://youtu.be/L23A99SjE4w)]
+- **[May 2025]**: Summer'25 Internship at **Mercedes-Benz R&D** in San Jose as a **Machine Learning Computing Intern** on the Autonomous Driving - Middleware team. Focused on model optimization and deployment across various hardware targets.
 
 
 
