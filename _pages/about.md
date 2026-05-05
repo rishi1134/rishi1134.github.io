@@ -22,6 +22,7 @@ My work spans the entire AI lifecycle, from data curation to edge-device optimiz
 ## News
 
 - **[May 2026]**: Won the **CSE Faculty Choice Award** at the University at Buffalo.
+- **[May 2026]**: Successfully defended my Master's thesis: **Structured Spatial Reasoning for Robust and Transparent Object Counting** (Committee: Dr. [J. Yuan](https://cse.buffalo.edu/~jsyuan/), Dr. [K. Ji](https://cse.buffalo.edu/~kaiyiji/), Dr. [N. Xi](https://southnx.github.io/)).
 - **[Nov 2025]**: "Chain-of-Look Spatial Reasoning for Dense Surgical Instrument Counting" paper accepted at **WACV 2026** [[Paper](https://openaccess.thecvf.com/content/WACV2026/html/Bhyri_Chain-of-Look_Spatial_Reasoning_for_Dense_Surgical_Instrument_Counting_WACV_2026_paper.html)] [[Code](https://github.com/rishi1134/CoLSR)] [[Video](https://youtu.be/L23A99SjE4w)]
 - **[May 2025]**: Summer'25 Internship at **Mercedes-Benz R&D** in San Jose as a **Machine Learning Computing Intern** on the Autonomous Driving - Middleware team. Focused on model optimization and deployment across various hardware targets.
 
