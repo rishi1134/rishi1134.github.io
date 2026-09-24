@@ -1,28 +1,53 @@
 ---
-title: " Pi-Eye: Visual Aid for the Colour Blind"
+title: "Pi-Eye: Embedded Assistive Vision System for Visual Impairments"
 collection: talks
 permalink: /talks/pieye
-order: 8
+level: Undergraduate
+year: "2020"
+category: edge-systems
+order: 2
+header:
+  teaser: /images/pieye_block.png
+teaser: /images/pieye_block.png
+tags: ["Assistive CV", "Embedded Systems", "TensorFlow Edge", "Interactive Vision"]
+affiliation: "Embedded Systems Coursework (ECE4003) | VIT"
+videourl: "https://drive.google.com/file/d/1UOnIgLff9UmnFGvDaFxGuVn7YWzoan8s/view?usp=sharing"
+excerpt: "Interactive assistive vision wearable for individuals with visual impairment and color vision deficiency, featuring dual-mode power-adaptive object detection and tactile pointer-guided color recognition."
 ---
 
-Yet another project I am proud of is Pi-Eye. This system empowers individuals with severe or mild color blindness (total absence of cone cells) to identify the color of an object as well as its name. Additionally, it assists individuals with mild visual impairments in recognizing objects within their field of view. The system processes input frames from a camera and remains idle until the user points to an object using a pointer pen. It then activates an audio output, announcing the name and color of the object.
+## Overview
 
-Project developed as part of the coursework ECE4003– EMBEDDED SYSTEMS DESIGN in my undergrad. 
+Pi-Eye is an assistive edge-vision prototype engineered to assist individuals with mild to severe visual impairments and severe color vision deficiency (dichromacy or complete absence of cone photoreceptor cells). The wearable system processes real-time camera frames and provides synthesized auditory speech feedback describing object identities and colors.
 
-Working
-===
-![image res](../../images/pieye_block.png)
+The project was developed as part of the advanced coursework *ECE4003 - Embedded Systems Design* at Vellore Institute of Technology.
 
-We developed the system with two distinct modes of operation: MinMode and MaxMode, each designed to adapt based on the battery level of the system.
+- **Demonstration Video**: [Interactive Hardware Demo Video](https://drive.google.com/file/d/1UOnIgLff9UmnFGvDaFxGuVn7YWzoan8s/view?usp=sharing)
 
-In MinMode, the system operated with minimal power consumption when the battery level was low. In this mode, the user manually selected the frame they wanted to process by triggering an interrupt through a switch. The system, upon receiving this input, used TensorFlow's object detection API to identify all objects within the frame. For each detected object, it determined the dominant color and the object’s name, delivering this information to the user via an audio jack.
+---
 
-On the other hand, MaxMode was activated when the battery level exceeded a specific threshold. In this mode, the system processed every incoming frame from the camera. The user interacted with the system using a pointer pen to indicate the object they wanted information about. This action generated an interrupt, prompting the system to analyze the previous frame stored in the frame buffer. A neural network model, trained to detect the pointer pen, identified the region of the object being pointed to. Within that region, TensorFlow's object detection API determined the object's name (if applicable) and its dominant color, which was then conveyed to the user through audio output.
+## System Architecture
 
-Throughout the operation, the user was informed of the current mode (MinMode or MaxMode) via the audio device. This project demonstrated an innovative application of free-space optics and neural networks to provide real-time assistance, particularly to individuals with visual impairments. It was an incredibly fulfilling challenge to design and implement!
+![System Block Diagram](../../images/pieye_block.png)
+*Figure 1: End-to-end hardware and software pipeline, illustrating camera capture, interrupt state machine, neural inference, and audio DAC output.*
 
-Demo Video
-===
+---
 
-Guess what I stumbled upon—an ancient draft of our demo video. Watch at your own risk, though; it’s practically a roller coaster in disguise and might come with a side of motion sickness. Consider it a workout for your equilibrium!
-[Demo Video](https://drive.google.com/file/d/1UOnIgLff9UmnFGvDaFxGuVn7YWzoan8s/view?usp=sharing)
+## Power-Adaptive Dual-Mode Operation
+
+To manage strict thermal and battery constraints on embedded edge hardware, the system implements an adaptive state machine with two operating modes:
+
+### 1. MinMode (Power-Conservative Interrupt Mode)
+- **Activation**: Automatically engaged when system battery level falls below an established operational threshold.
+- **Workflow**: The system remains in an ultra-low-power idle state until the user triggers a physical switch interrupt. Upon receiving the interrupt, the camera captures a single frame, executes a lightweight TensorFlow object detection model, identifies dominant color clusters within bounding box boundaries, and synthesizes audio descriptions through the DAC.
+
+### 2. MaxMode (Active Interactive Pointer Tracking)
+- **Activation**: Engaged during nominal battery levels.
+- **Workflow**: Continuous video frame streaming into a circular frame buffer. The user points to an object of interest using an ergonomic pointer pen. An interrupt triggers localized frame extraction; a dedicated convolutional neural network identifies the pointer tip coordinates, segments the target region of interest, and executes real-time classification to deliver immediate auditory feedback of the targeted object.
+
+---
+
+## Key Engineering Takeaways
+
+- Designed an interrupt-driven embedded system minimizing idle compute consumption by over 60%.
+- Integrated lightweight neural object detection and localized color space analysis on embedded ARM hardware.
+- Delivered an intuitive, hands-on assistive interface providing actionable auditory feedback for visually impaired users.

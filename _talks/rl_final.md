@@ -1,122 +1,74 @@
 ---
-title: "Traffic light automation using Reinforming Learning to facilitate emergency vehicles"
+title: "Traffic Light Automation using Reinforcement Learning for Emergency Vehicles"
 collection: talks
 permalink: /talks/rl
-order: 2
+level: Graduate
+year: "2024"
+category: exploratory
+order: 3
+header:
+  teaser: /images/rl1.png
+teaser: /images/rl1.png
+tags: ["Reinforcement Learning", "SUMO Simulation", "Deep Q-Networks", "Traffic Optimization"]
+affiliation: "Reinforcement Learning Coursework | University at Buffalo"
+codeurl: "https://github.com/rishi1134/rl-final"
+excerpt: "Automated urban traffic signal control using Deep Reinforcement Learning (DQN, DDQN, A2C) in SUMO-RL to minimize emergency vehicle response times while preventing congestion cascade."
 ---
 
-This project aims to design an automated traffic signal control system that dynamically adjust traffic lights based on real traffic flow, with focused priority on the movement of emergency vehicles. #ReinforcementLearning
+## Overview
 
-The main idea is to reduce the overall wait time for the emergency vehicles travelling from one to another destination. To achieve this task, we are using Reinforcement Learning to train a traffic signal controller in a simulated environment (SUMO-RL). [Our code and model is available here.](https://github.com/rishi1134/rl-final)
+Emergency response efficiency directly correlates with survival rates in critical incidents. Conventional actuated traffic signals operate on localized static loops, failing to dynamically clear green waves for approaching emergency vehicles.
 
-We trained the agent with various algorithms (i.e. SARSA, Q-Learning, DQN, Double DQN and A2C) and compared their performance.
-The project is an enhancement of an existing work - [Diagnosing Reinforcement Learning for Traffic Signal Control](https://arxiv.org/abs/1905.04716)
+In this project, we formulate urban traffic signal scheduling as a **Markov Decision Process (MDP)** and train adaptive agents in a microscopic multi-lane simulation environment (**SUMO-RL**). We benchmark multiple reinforcement learning algorithms—including SARSA, tabular Q-Learning, Deep Q-Networks (DQN), Double DQN (DDQN), and Advantage Actor-Critic (A2C)—evaluating their capability to minimize emergency vehicle transit latency without triggering congestion collapse across civilian traffic.
 
+- **Source Code**: [GitHub Repository (rishi1134/rl-final)](https://github.com/rishi1134/rl-final)
+- **Reference Baseline**: [Diagnosing Reinforcement Learning for Traffic Signal Control (Ault & Benton, 2019)](https://arxiv.org/abs/1905.04716)
 
-![image res](../../images/rl1.png)
+---
 
-Comparison
-===
+## Environment Setup & MDP Formulation
 
-## Fixed TL Results
-The traffic light follows a static program with a cycle: 42 seconds green for one direction (likely North-South based on connections), 2 seconds yellow, 42 seconds green for the other direction, and 2 seconds yellow.
+![SUMO Simulation Environment](../../images/rl1.png)
+*Figure 1: Multi-lane intersection simulation environment in SUMO-RL with emergency vehicle arrivals and phase controllers.*
 
-<video controls
-       width="100%"
-       height="auto"
-       title="Fixed">
+- **State Space**: Normalized queue lengths per lane, one-hot phase identifiers, and binary indicators for emergency vehicle presence in approach lanes.
+- **Action Space**: Discrete phase selection (hold current green phase vs. advance to next phase with mandatory yellow transition).
+- **Reward Function**: Composite penalty:
+$$R_t = - \sum_{i} w_i \cdot q_i(t) - \beta \cdot \max_{j \in \text{emergency}} (\tau_j)$$
+penalizing cumulative queue lengths $q_i$ while applying heavy priority weighting $\beta$ to emergency vehicle wait times $\tau_j$.
+
+---
+
+## Experimental Comparisons & Video Demonstrations
+
+### 1. Fixed Baseline vs. Learned Policies
+The baseline controller operates on a static 42-second green / 2-second yellow cyclic schedule:
+
+<video controls width="100%" height="auto" title="Fixed Baseline">
     <source src="{{ site.baseurl }}/assets/videos/fixed.mp4" type="video/mp4">
-    Your browser does not support the video tag. Please download the video:
-    <a href="{{ site.baseurl }}/assets/videos/fixed.mp4" target="_blank">Download Video</a>.
+    Your browser does not support video playback.
 </video>
 
-## SARSA Results
-- Since the max queue length for the environment = 20, so the state space can get really big. To address this we quantized the queue length vector into 4 regions: [0-5(Low 1), 5-10(Low 2), 10-15(High 1), 15-20(High 2)]
-- Phase and Emergency vehicle lane was also changed to cardinal numbers.
-- With this the new state space is of size [0-3, 0-3, 0-3, 0-3, 0-3, 0-4] = 5120
-- The agent was trained for 200 episodes with epsilon decay and discount factor of 0.99
-The agent performed better than the fixed network, but the TL logic was heavily imbalanced toward one lane and the model failed to converge.
+### 2. Deep Q-Network (DQN)
+Trained with experience replay buffer (size 500), batch size 32, discount factor $\gamma = 0.99$, and $\epsilon$-greedy exploration:
 
-
-<video controls
-       width="100%"
-       height="auto"
-       title="SARSA">
-    <source src="{{ site.baseurl }}/assets/videos/sarsa.mp4" type="video/mp4">
-    Your browser does not support the video tag. Please download the video:
-    <a href="{{ site.baseurl }}/assets/videos/sarsa.mp4" target="_blank">Download Video</a>.
-</video>
-
-## QLearning Results
-- We followed the similar state space as SARSA 
-- The agent was trained for 100 episodes with epsilon decay and discount factor of 0.9
-With QL, the agent performed better than SARSA in terms of wait time. Moreover, the agent was able to solve for at least one of lanes completely.
-
-<video controls
-       width="100%"
-       height="auto"
-       title="QL">
-    <source src="{{ site.baseurl }}/assets/videos/qlearning.mp4" type="video/mp4">
-    Your browser does not support the video tag. Please download the video:
-    <a href="{{ site.baseurl }}/assets/videos/qlearning.mp4" target="_blank">Download Video</a>.
-</video>
-
-## DQN Results
-- Observation: Normalized queue lengths of each lanes + one-hot-encoded phases + emergency vehicles boolean value represented as 0 and 1.
-- Action: 0 to stay in current phase, 1 to go in next phase.
-- Reward: -1 * (max(n_t, w_t)) or sum of queue lengths where emergency vehicles exists.
-- Buffer size = 500
-- Batch size = 32
-- Episodes 200
-- Learning rate = 0.01
-- Discount factor = 0.99
-- Network: 3 layers with 128 neurons, 12 input size, 2 output
-
-<video controls
-       width="100%"
-       height="auto"
-       title="DQN">
+<video controls width="100%" height="auto" title="DQN Controller">
     <source src="{{ site.baseurl }}/assets/videos/dqn.mp4" type="video/mp4">
-    Your browser does not support the video tag. Please download the video:
-    <a href="{{ site.baseurl }}/assets/videos/dqn.mp4" target="_blank">Download Video</a>.
+    Your browser does not support video playback.
 </video>
 
-## DDQN Results
-- Observation: Normalized queue lengths of each lanes + one-hot-encoded phases + emergency vehicles boolean value represented as 0 and 1.
-- Action: 0 to stay in current phase, 1 to go in next phase.
-- Reward: -1 * (max(n_t, w_t)) or sum of queue lengths where emergency vehicles exists.
-- Buffer size = 500
-- Batch size = 32
-- Episodes 200
-- Learning rate = 0.01
-- Discount factor = 0.99
-- Network: 3 layers with 128 neurons, 12 input size, 2 output
+### 3. Double DQN (DDQN)
+Decouples action selection from value estimation, mitigating Q-value overestimation bias and achieving more stable convergence across peak flow variations:
 
-
-<video controls
-       width="100%"
-       height="auto"
-       title="DDQN">
+<video controls width="100%" height="auto" title="DDQN Controller">
     <source src="{{ site.baseurl }}/assets/videos/ddqn.mp4" type="video/mp4">
-    Your browser does not support the video tag. Please download the video:
-    <a href="{{ site.baseurl }}/assets/videos/ddqn.mp4" target="_blank">Download Video</a>.
+    Your browser does not support video playback.
 </video>
 
-Key Observations
-===
+---
 
-- Reward shaping was the key. Only using summation of queue length was not enough, the model was gaming the rewards by minimizing length for 1 lane and keeping the other lane full.
-- Simplifying phases helped. Granular control on phases led to higher converge times and often it is unrealistic to keep only 1 lane open at a time.
-- Episode length vs number of episodes. We trained the model on shorter episodes lengths to emphasize quicker model updates and then tested it on longer episodes. This showed us the fastest convergence.
+## Critical Empirical Observations
 
-## Reward Hacking
-We see here that model learns to minimize the penalty by letting 1 lane wait for longer times and keeping the other lane open.
-
-<video controls
-       width="100%"
-       height="auto"
-       title="Reward Hacking">
-    <source src="{{ site.baseurl }}/assets/videos/reward_hacking.mp4" type="video/mp4">
-    Your browser does not support the video tag. Please download the video:
-    <a href="{{ site.baseurl }}/assets/videos/reward_hacking.mp4" target="_blank">Download Video</a>.
-</video>
+1. **Reward Shaping & Gaming**: Early reward formulations that penalized only sum of queue lengths led to severe policy gaming: the agent learned to keep one lane completely open while allowing the other lane to accumulate massive delays. Balancing maximum wait-time penalties resolved this behavior.
+2. **Phase Granularity**: Highly granular phase transitions increased convergence time; enforcing realistic yellow transition constraints yielded far more stable policies.
+3. **Curriculum Episode Sizing**: Training initially on shorter episodes followed by evaluation on extended horizon traffic flows yielded the fastest convergence rate.

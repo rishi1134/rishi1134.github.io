@@ -5,8 +5,35 @@ permalink: /kala/
 author_profile: true
 ---
 
+{% include base_path %}
+
+<p style="font-size: 1.05rem; color: #475569; margin-bottom: 2rem; line-height: 1.6;">
+Selected graduate research and industry projects across computer vision, generative modeling, and intelligent systems.
+</p>
+
 {% assign sorted_talks = site.talks | sort: "order" %}
 
 {% for post in sorted_talks %}
-  {% include archive-single-talk.html %}
+  {% if post.level != "Undergraduate" %}
+    {% include archive-single-talk.html %}
+  {% endif %}
 {% endfor %}
+
+<details class="undergrad-collapsible">
+  <summary class="undergrad-summary">
+    <span class="undergrad-summary-title">
+      <i class="fas fa-archive fa-fw" style="color: #64748b;"></i> Undergraduate Projects (VIT, 2017–2021)
+    </span>
+    <span class="undergrad-summary-badge">4 archived projects &bull; Click to expand</span>
+  </summary>
+  <div class="undergrad-content">
+    <p class="undergrad-note">
+      Archived coursework and early capstone projects completed during undergraduate B.Tech studies.
+    </p>
+    {% for post in sorted_talks %}
+      {% if post.level == "Undergraduate" %}
+        {% include archive-single-talk.html %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</details>
